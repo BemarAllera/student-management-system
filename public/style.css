@@ -1,0 +1,922 @@
+
+/* =====================================
+   STUDENTHUB - MAIN DASHBOARD DESIGN
+===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #11111f;
+    color: #f5f3ff;
+    min-height: 100vh;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background: #1c1b2e;
+    border-right: 1px solid #302e45;
+    padding: 25px 18px;
+    z-index: 100;
+}
+
+.sidebar h2 {
+    color: #a78bfa;
+    margin-bottom: 10px;
+}
+
+.sidebar p {
+    color: #a09db5;
+    font-size: 13px;
+    margin-bottom: 35px;
+}
+
+.sidebar a {
+    display: block;
+    text-decoration: none;
+    color: #c4c0d8;
+    padding: 13px 15px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    transition: .3s;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+    background: #713de0;
+    color: white;
+}
+
+/* MAIN CONTENT */
+
+.main {
+    margin-left: 250px;
+    padding: 30px;
+    min-height: 100vh;
+}
+
+/* HEADER */
+
+header {
+    background: #1c1b2e;
+    border: 1px solid #302e45;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+header h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+header p {
+    color: #a09db5;
+}
+
+/* CONTENT SECTIONS */
+
+.content {
+    background: #1c1b2e;
+    border: 1px solid #302e45;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+.content h2 {
+    margin-bottom: 12px;
+    color: #f5f3ff;
+}
+
+.content p {
+    color: #a09db5;
+    margin-bottom: 20px;
+}
+
+/* BUTTONS */
+
+button {
+    padding: 11px 17px;
+    border: none;
+    border-radius: 7px;
+    background: #713de0;
+    color: white;
+    cursor: pointer;
+    transition: .3s;
+}
+
+button:hover {
+    background: #8b5cf6;
+}
+
+/* SEARCH */
+
+#searchStudents {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px 15px;
+    background: #29273d;
+    border: 1px solid #393650;
+    border-radius: 7px;
+    color: white;
+    margin-bottom: 20px;
+    outline: none;
+}
+
+input,
+select {
+    font-family: inherit;
+}
+
+/* TABLE */
+
+.table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+    background: #1c1b2e;
+}
+
+thead {
+    background: #29273d;
+}
+
+th,
+td {
+    padding: 16px;
+    text-align: left;
+    border-bottom: 1px solid #302e45;
+}
+
+th {
+    color: #a78bfa;
+    font-size: 13px;
+}
+
+td {
+    color: #dedbea;
+    font-size: 14px;
+}
+
+tbody tr:hover {
+    background: #29273d;
+}
+
+/* FORM */
+
+#studentFormSection input,
+#studentFormSection select {
+    display: block;
+    width: 100%;
+    padding: 13px;
+    margin: 12px 0 20px;
+    background: #29273d;
+    border: 1px solid #393650;
+    border-radius: 7px;
+    color: white;
+}
+
+#studentFormSection label {
+    color: #c4c0d8;
+}
+
+#studentFormSection button {
+    margin-right: 8px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* TOTAL STUDENTS */
+
+#totalStudents {
+    color: #a78bfa;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* RESPONSIVE MAIN LAYOUT */
+
+@media (max-width: 800px) {
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .main {
+        margin-left: 0;
+        padding: 18px;
+    }
+
+    header h1 {
+        font-size: 23px;
+    }
+}
+
+/* ADVANCED DASHBOARD STATISTICS */
+
+.advanced-statistics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin: 25px 0;
+}
+
+.advanced-stat-card {
+    background: #1c1b2e;
+    border: 1px solid #302e45;
+    border-radius: 12px;
+    padding: 22px;
+    transition: .3s;
+}
+
+.advanced-stat-card:hover {
+    transform: translateY(-4px);
+    border-color: #8b5cf6;
+}
+
+.advanced-stat-card span,
+.advanced-stat-card small {
+    display: block;
+    color: #a09db5;
+    font-size: 12px;
+}
+
+.advanced-stat-card strong {
+    display: block;
+    font-size: 27px;
+    margin: 12px 0;
+    color: #a78bfa;
+}
+
+/* TOOLBAR */
+
+.student-toolbar {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 18px;
+    background: #1c1b2e;
+    border: 1px solid #302e45;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+.toolbar-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.student-toolbar select,
+.student-toolbar button {
+    padding: 10px 13px;
+    background: #29273d;
+    color: white;
+    border: 1px solid #393650;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.student-toolbar button:hover {
+    background: #713de0;
+}
+
+.student-toolbar button:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+/* PAGINATION */
+
+.student-pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    padding: 18px;
+    background: #1c1b2e;
+    color: #a09db5;
+    font-size: 13px;
+}
+
+.pagination-buttons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.pagination-buttons button {
+    padding: 9px 13px;
+    background: #713de0;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.pagination-buttons button:disabled {
+    opacity: .4;
+    cursor: not-allowed;
+}
+
+/* COURSE ANALYTICS */
+
+.course-analytics {
+    margin-top: 22px;
+    padding: 22px;
+    background: #1c1b2e;
+    border: 1px solid #302e45;
+    border-radius: 12px;
+}
+
+.course-analytics h3 {
+    margin-bottom: 20px;
+}
+
+.analytics-row {
+    margin-bottom: 17px;
+}
+
+.analytics-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 9px;
+    font-size: 13px;
+}
+
+.analytics-info span {
+    color: #d5d0e5;
+}
+
+.analytics-info strong {
+    color: #a78bfa;
+}
+
+.analytics-bar {
+    height: 9px;
+    background: #302e45;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.analytics-bar div {
+    height: 100%;
+    background: linear-gradient(90deg, #713de0, #d946ef);
+    border-radius: 20px;
+    transition: width .4s;
+}
+
+/* YEAR BADGE */
+
+.year-badge {
+    display: inline-block;
+    padding: 6px 10px;
+    background: #713de033;
+    color: #c4b5fd;
+    border-radius: 6px;
+    font-size: 11px;
+}
+
+/* EMPTY STATE */
+
+.empty-state {
+    text-align: center;
+    padding: 30px !important;
+    color: #a09db5;
+}
+
+/* NOTIFICATIONS */
+
+.system-toast {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    background: #242238;
+    color: white;
+    padding: 15px 22px;
+    border-radius: 9px;
+    border-left: 4px solid #22c55e;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: .3s;
+    pointer-events: none;
+    z-index: 9999;
+    max-width: calc(100% - 40px);
+}
+
+.system-toast.error {
+    border-left-color: #ef4444;
+}
+
+.system-toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+    .advanced-statistics {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .advanced-statistics {
+        grid-template-columns: 1fr;
+    }
+
+    .student-toolbar,
+    .toolbar-group {
+        flex-direction: column;
+    }
+
+    .student-toolbar select,
+    .student-toolbar button {
+        width: 100%;
+    }
+
+    .student-pagination {
+        flex-direction: column;
+    }
+}
+.page-hidden {
+    display: none !important;
+}
+
+/* ===== DASHBOARD STATISTICS FIX ===== */
+
+.stats,
+.advanced-statistics {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    margin: 25px 0;
+}
+
+.stats .stat-card,
+.advanced-stat-card {
+    background: #1c1b2e;
+    border: 1px solid #302e45;
+    border-radius: 14px;
+    padding: 25px;
+    min-height: 125px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: 0.3s ease;
+}
+
+.stats .stat-card:hover,
+.advanced-stat-card:hover {
+    transform: translateY(-5px);
+    border-color: #7c3aed;
+}
+
+.stats .stat-card h3,
+.advanced-stat-card h3 {
+    color: #b8b5d0;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+.stats .stat-card p,
+.advanced-stat-card p {
+    color: #a78bfa;
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* RESPONSIVE DASHBOARD */
+@media (max-width: 900px) {
+    .stats,
+    .advanced-statistics {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    .stats,
+    .advanced-statistics {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =====================================
+   STUDENTHUB - SEPARATE PAGE LAYOUT
+===================================== */
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden !important;
+}
+
+body {
+    display: flex;
+}
+
+/* Sidebar stays in place */
+.sidebar {
+    height: 100vh;
+    overflow-y: auto;
+    flex-shrink: 0;
+}
+
+/* Main application area */
+.main {
+    height: 100vh;
+    min-height: 0;
+    box-sizing: border-box;
+    overflow: hidden !important;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Hide pages that are not selected */
+.page-hidden {
+    display: none !important;
+}
+
+/* Dashboard */
+.main > header#dashboard {
+    flex-shrink: 0;
+    margin-bottom: 20px;
+}
+
+.main > .stats {
+    flex-shrink: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+/* Student Records */
+#students {
+    height: 100%;
+    min-height: 0;
+    overflow: hidden !important;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#students .top-bar,
+#students #searchStudents,
+#students .student-toolbar,
+#students #studentPagination {
+    flex-shrink: 0;
+}
+
+#students .table-wrap {
+    flex: 1;
+    min-height: 0;
+    overflow: auto;
+}
+
+/* Analytics */
+#analytics {
+    height: 100%;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Analytics cards */
+#analytics .advanced-statistics {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+}
+
+/* Student form */
+#studentFormSection {
+    max-height: 100%;
+    overflow-y: auto;
+}
+
+/* Hide footer to maximize page space */
+.main > footer {
+    display: none;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .main > .stats,
+    #analytics .advanced-statistics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .main > .stats,
+    #analytics .advanced-statistics {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==================================
+   STUDENTHUB LAYOUT CORRECTION
+================================== */
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+}
+
+/* SIDEBAR */
+.sidebar {
+    height: 100vh;
+    flex-shrink: 0;
+    overflow-y: auto;
+}
+
+/* MAIN CONTENT - RESTORE SCROLLING */
+.main {
+    flex: 1;
+    width: 0;
+    min-width: 0;
+    height: 100vh;
+    max-height: 100vh;
+    box-sizing: border-box;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    padding: 30px;
+}
+
+/* SEPARATE PAGES */
+.page-hidden {
+    display: none !important;
+}
+
+/* MAKE SECTIONS USE FULL WIDTH */
+.main > header,
+.main > .stats,
+.main > #students,
+.main > #analytics,
+.main > #studentFormSection {
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+}
+
+/* DASHBOARD STATISTICS */
+.main > .stats,
+#analytics .advanced-statistics {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+    margin: 25px 0;
+}
+
+/* EQUAL CARD HEIGHT */
+.stat-card,
+.advanced-stat-card {
+    width: 100%;
+    min-width: 0;
+    min-height: 150px;
+    box-sizing: border-box;
+}
+
+/* ANALYTICS CHARTS */
+#analytics .course-analytics {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 20px 0;
+}
+
+/* STUDENT RECORDS */
+#students {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#students .table-wrap {
+    width: 100%;
+    overflow-x: auto;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1100px) {
+    .main > .stats,
+    #analytics .advanced-statistics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 650px) {
+    .main {
+        padding: 15px;
+    }
+
+    .main > .stats,
+    #analytics .advanced-statistics {
+        grid-template-columns: 1fr;
+    }
+}
+/* =========================================
+   STUDENTHUB LAYOUT FIX
+========================================= */
+
+html {
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+body {
+    min-height: 100vh;
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.main {
+    min-height: 100vh;
+    height: auto;
+    margin-left: 300px;
+    padding: 35px;
+    overflow: visible;
+    box-sizing: border-box;
+}
+
+.page-hidden {
+    display: none !important;
+}
+
+/* DASHBOARD HEADER */
+
+#dashboard {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+}
+
+/* DASHBOARD STATISTICS */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+/* STUDENT RECORDS */
+
+#students,
+#analytics,
+#studentFormSection {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.table-wrap {
+    width: 100%;
+    overflow-x: auto;
+}
+
+/* ANALYTICS STATISTICS */
+
+.advanced-statistics {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.advanced-stat-card {
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+/* ANALYTICS CHARTS */
+
+.course-analytics {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 25px;
+}
+
+.analytics-row {
+    width: 100%;
+    margin-bottom: 18px;
+}
+
+.analytics-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.analytics-bar {
+    width: 100%;
+}
+
+/* FOOTER */
+
+footer {
+    margin-top: 30px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1100px) {
+    .stats,
+    .advanced-statistics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 700px) {
+    .main {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .stats,
+    .advanced-statistics {
+        grid-template-columns: 1fr;
+    }
+}
+/* DASHBOARD BACKGROUND IMAGE - FIX */
+
+.main {
+    background-image:
+        linear-gradient(
+            rgba(15, 14, 30, 0.35),
+            rgba(15, 14, 30, 0.45)
+        ),
+        url("./background.jpg") !important;
+
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+    background-color: #11101e;
+}
+
+/* TRANSPARENT DASHBOARD CARDS */
+
+.stat-card,
+.advanced-stat-card,
+.course-analytics,
+#dashboard {
+    background: rgba(30, 28, 48, 0.82);
+    backdrop-filter: blur(5px);
+}
+
+/* TRANSPARENT STATISTICS CARDS */
+
+.stat-card,
+.advanced-stat-card,
+.course-analytics {
+    background: rgba(30, 28, 48, 0.90);
+    backdrop-filter: blur(8px);
+}
+
+/* HEADER BACKGROUND */
+
+.main header {
+    background: rgba(30, 28, 48, 0.90);
+    backdrop-filter: blur(8px);
+}
